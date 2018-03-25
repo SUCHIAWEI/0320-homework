@@ -10,15 +10,15 @@ public class Main {
         System.out.println("姓名"+"\t\t"+"性別"+"\t\t"+"系所"+"\t\t"+"英文成績"+"\t"+"國文成績"+"\t"+"數學成績");
         for (int i =0 ;i<4; i++){
             st[i].showInfo();}
+        System.out.println("功能列表\n" +
+                "1 查某位同學  問第n位\n" +
+                "2 查全部\n" +
+                "3 查某科目平均   -  1: 英文  2:國文  3:數學 \n" +
+                "4 查某同學的總分與平均 問第n位同學  \n");
 
         Scanner scn= new Scanner(System.in);
-        int i =scn.nextInt();
-        while (i<5) {
-            System.out.println("功能列表\n" +
-                    "1 查某位同學  問第n位\n" +
-                    "2 查全部\n" +
-                    "3 查某科目平均   -  1: 英文  2:國文  3:數學 \n" +
-                    "4 查某同學的總分與平均 問第n位同學  \n");
+        for (int j =0; j<5 ;j++){
+            int i =scn.nextInt();
             if (i == 1) {
                 System.out.println("要問第幾位");
                 int how = scn.nextInt();
@@ -27,6 +27,7 @@ public class Main {
                 } else {
                     System.out.println("姓名" + "\t\t" + "性別" + "\t\t" + "系所" + "\t\t" + "英文成績" + "\t" + "國文成績" + "\t" + "數學成績");
                     st[how].showInfo();
+
                 }
             } else if (i == 2) {
                 System.out.println("姓名" + "\t\t" + "性別" + "\t\t" + "系所" + "\t\t" + "英文成績" + "\t" + "國文成績" + "\t" + "數學成績");
@@ -35,6 +36,7 @@ public class Main {
                 st[2].showInfo();
                 st[3].showInfo();
                 st[4].showInfo();
+                i=0;
             } else if (i == 3) {
                 System.out.println("要查哪一科");
                 int which = scn.nextInt();
@@ -42,6 +44,7 @@ public class Main {
                     System.out.println("英文平均" + ":" + (st[0].getEnglish平均() + st[1].getEnglish平均() + st[2].getEnglish平均()
                             + st[3].getEnglish平均() + st[4].getEnglish平均()));
                 }
+
                 if (which == 2) {
                     System.out.println("國文平均" + ":" + (st[0].getChinese平均() + st[1].getChinese平均() + st[2].getChinese平均()
                             + st[3].getChinese平均() + st[4].getChinese平均()));
@@ -58,13 +61,15 @@ public class Main {
                 } else {
                     System.out.println("總分" + ":" + (st[how].getEnglish() + st[how].getChinese() + st[how].getMath()));
                     System.out.println("平均" + ":" + ((st[how].getEnglish() + st[how].getChinese() + st[how].getMath()) / 3));
-                }
+                    }
 
             }
+            if (i == 5) {
+                System.out.println("離開");
+                break;}
+
         }
-        if (i==5){
-            System.out.println("離開");
             }
         }
-    }
+
 
